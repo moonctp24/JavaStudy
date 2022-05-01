@@ -22,4 +22,9 @@ public class OrderServiceImpl implements OrderService{
 
         return new Order(memberId, itemName, itemPrice, discountPrice);
     }
+
+    // @Configration의 싱글톤 보장 테스트를 위한 코드
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }
