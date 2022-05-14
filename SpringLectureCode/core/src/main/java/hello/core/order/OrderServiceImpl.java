@@ -39,7 +39,7 @@ public class OrderServiceImpl implements OrderService{
 
     /* Lombok @RequiredArgsConstructor으로 인해 생성자 필요없어짐 */
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
 //        System.out.println("1. memberRepository = "+memberRepository+", discountPolicy = "+discountPolicy);
         this.discountPolicy = discountPolicy;
         this.memberRepository=memberRepository;
