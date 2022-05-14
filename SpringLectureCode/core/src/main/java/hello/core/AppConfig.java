@@ -8,6 +8,7 @@ import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -34,6 +35,7 @@ public class AppConfig {
     }
 
     @Bean
+//    @Qualifier("mainDiscountPolicy")
     public DiscountPolicy discountPolicy(){
         /* 할인 정책 변경 */
 //        return new FixDiscountPolicy();
