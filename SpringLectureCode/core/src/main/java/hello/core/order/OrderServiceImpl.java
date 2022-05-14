@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
+    private MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
 
-    /* 의존관계 주입 - 수정자 주입 방법
+    /* 의존관계 주입 - 수정자 주입 방법 */
     @Autowired
     public void setDiscountPolicy(DiscountPolicy discountPolicy) {
         System.out.println("discountPolicy = "+discountPolicy);
@@ -24,14 +24,13 @@ public class OrderServiceImpl implements OrderService{
         System.out.println("memberRepository = "+memberRepository);
         this.memberRepository = memberRepository;
     }
-     */
 
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        System.out.println("1. memberRepository = "+memberRepository+", discountPolicy = "+discountPolicy);
         this.discountPolicy = discountPolicy;
         this.memberRepository=memberRepository;
     }
-
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
